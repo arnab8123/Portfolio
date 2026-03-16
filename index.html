@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Arnab Malakar| Coder Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="style.css"/>
+  <script>
+    (function() {
+      const saved = localStorage.getItem('portfolio-theme');
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+      const theme = saved ? saved : (prefersDark ? 'dark' : 'light');
+      document.documentElement.setAttribute('data-theme', theme);
+    })();
+</script>
+</head>
+<body>
+
+<!-- ── NAV ── -->
+<nav>
+  <div class="nav-logo"><span class="acc">&gt;_</span> Arnab Malakar</div>
+  <div class="nav-links">
+    <a href="#about"><span class="c">// </span>about</a>
+    <a href="#skills"><span class="c">// </span>skills</a>
+    <a href="#projects"><span class="c">// </span>projects</a>
+    <a href="#education"><span class="c">// </span>education</a>
+    <a href="#contact"><span class="c">// </span>contact</a>
+  </div>
+  <div class="nav-r">
+    <button class="theme-btn" id="themeBtn"><i class="fas fa-moon"></i></button>
+    <button class="hamburger" id="ham"><i class="fas fa-bars"></i></button>
+  </div>
+</nav>
+
+<!-- Mobile Nav -->
+<div class="mob-nav" id="mobNav">
+  <a href="#about"     onclick="closeMob()">// about</a>
+  <a href="#skills"    onclick="closeMob()">// skills</a>
+  <a href="#projects"  onclick="closeMob()">// projects</a>
+  <a href="#education" onclick="closeMob()">// education</a>
+  <a href="#contact"   onclick="closeMob()">// contact</a>
+</div>
+
+<!-- ── HERO ── -->
+<section id="hero">
+  <div class="wrap">
+    <div class="hero-grid">
+
+      <!-- LEFT CONTENT -->
+      <div>
+        <p class="hero-pre"><span>$ </span>whoami</p>
+        <h1 class="hero-name">
+          Hi, I'm<br/><span class="grd">ARNAB</span>
+        </h1>
+        <p class="hero-role">
+          <span class="typed" id="typedRole">Diploma CS Student</span><span class="blink">▌</span>
+        </p>
+        <p class="hero-desc">
+          A passionate coder and Diploma CSE student from West Bengal. I love writing clean, logical code — from C/C++ programs to full-stack web apps. Fresher, hungry to grow and contribute.
+        </p>
+        <div class="hero-btns">
+          <a href="#projects" class="btn-p"><i class="fas fa-terminal"></i> View Projects</a>
+          <a href="#contact"  class="btn-o"><i class="fas fa-paper-plane"></i> Hire Me</a>
+        </div>
+        <div class="hero-stats">
+          <div><span class="stat-n" id="sc1">0</span><span class="stat-l">Projects</span></div>
+          <div><span class="stat-n" id="sc2">0</span><span class="stat-l">Languages</span></div>
+          <div><span class="stat-n" id="sc3">0</span><span class="stat-l">Yr Study</span></div>
+        </div>
+        <div class="term-row">
+          <span class="g">✓</span> C &nbsp;
+          <span class="g">✓</span> C++ &nbsp;
+          <span class="b">✓</span> Java &nbsp;
+          <span class="p">✓</span> Python &nbsp;
+          <span class="g">✓</span> HTML/CSS/JS &nbsp;
+          <span class="b">✓</span> Git
+        </div>
+      </div>
+
+      <!-- RIGHT: AVATAR -->
+      <div class="hero-av-col">
+        <div class="av-ring">
+          <span class="av-badge">Open to Work</span>
+
+          <div class="av-inner" id="avBox">
+            <!--
+              DARK MODE IMAGE  → av-img-dark class
+              LIGHT MODE IMAGE → av-img-light class
+              Replace the src values below with your actual image paths.
+              Example:
+                Dark mode:  src="images/photo-dark.jpg"
+                Light mode: src="images/photo-light.jpg"
+              Or use the same image for both.
+            -->
+            <img
+              src="images/for_dark.jpeg"
+              alt="Profile Photo - Dark"
+              class="av-img-dark"
+              onerror="this.style.display='none'; document.getElementById('avFallback').style.display='flex';"
+            />
+            <img
+              src="images/for_light.png"
+              alt="Profile Photo - Light"
+              class="av-img-light"
+              onerror="this.style.display='none';"
+            />
+            <!-- Fallback placeholder shown if images fail -->
+            <div class="av-ph" id="avFallback" style="display:none" onclick="trigUp()">
+              <i class="fas fa-camera"></i>
+              <p>Click to add photo</p>
+            </div>
+            <button class="av-edit" onclick="trigUp()"><i class="fas fa-pen"></i></button>
+          </div>
+
+          <input type="file" id="avFile" class="av-file" accept="image/*" onchange="handleUp(event)"/>
+
+          <div class="chip chip-fresh">
+            <i class="fas fa-graduation-cap" style="color:var(--accent)"></i> Diploma Student
+          </div>
+          <div class="chip chip-avail">
+            <span class="dot"></span> Available for hire
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── ABOUT ── -->
+<section id="about">
+  <div class="wrap">
+    <div class="about-grid">
+
+      <div class="rev">
+        <div class="sec-lbl">about_me</div>
+        <h2 class="sec-title">Who am <span class="hl">I?</span></h2>
+        <p class="sec-sub">
+          I'm a Diploma Computer Science student from West Bengal with strong fundamentals in programming. I love solving problems with code — from low-level C/C++ logic to full-stack web applications.
+        </p>
+        <p class="sec-sub" style="margin-top:.9rem">
+          Fresher, actively seeking internships and junior developer roles. I bring energy, curiosity, and a commitment to writing clean, efficient code.
+        </p>
+        <div style="margin-top:1.8rem; display:flex; gap:.8rem; flex-wrap:wrap;">
+          <a href="#contact" class="btn-p"><i class="fas fa-download"></i> Download CV</a>
+          <a href="#projects" class="btn-o"><i class="fas fa-code"></i> My Projects</a>
+        </div>
+      </div>
+
+      <div class="rev">
+        <div class="code-card">
+          <div class="code-hdr">
+            <span class="dr"></span><span class="dy"></span><span class="dg"></span>
+            <span class="cfn">about.json</span>
+          </div>
+          <div class="code-body">
+            <span class="cln"><span class="co">{</span></span>
+            <span class="cln">&nbsp;&nbsp;<span class="ck">"name"</span>: <span class="cs">"Arnab Malakar"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;<span class="ck">"role"</span>: <span class="cs">"Diploma CS Student | Fresher"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;<span class="ck">"location"</span>: <span class="cs">"West Bengal, India"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;<span class="ck">"email"</span>: <span class="cs">"arnabmalakar@hotmail.com"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;<span class="ck">"github"</span>: <span class="cs">"github.com/arnab8123"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;<span class="ck">"board"</span>: <span class="cs">"WBBSE"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;<span class="ck">"status"</span>: <span style="color:#22c55e">"Open to Opportunities ✅"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;<span class="ck">"interests"</span>: [</span>
+            <span class="cln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"Competitive Coding"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"Full Stack Web Dev"</span>,</span>
+            <span class="cln">&nbsp;&nbsp;&nbsp;&nbsp;<span class="cs">"DSA &amp; Problem Solving"</span></span>
+            <span class="cln">&nbsp;&nbsp;]</span>
+            <span class="cln"><span class="co">}</span></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── SKILLS ── -->
+<section id="skills">
+  <div class="wrap">
+    <div class="rev" style="text-align:center">
+      <div class="sec-lbl" style="justify-content:center">skills.config</div>
+      <h2 class="sec-title">My <span class="hl">Tech Stack</span></h2>
+      <p class="sec-sub" style="margin:0 auto">Languages, tools, and what I'm currently learning.</p>
+    </div>
+
+    <div class="sk-cats rev">
+      <!-- Languages -->
+      <div class="skc">
+        <div class="skc-title"><i class="fas fa-code"></i> Languages</div>
+        <div class="sktags">
+          <span class="sktag on">C</span>
+          <span class="sktag on">C++</span>
+          <span class="sktag on">Java</span>
+          <span class="sktag on">Python</span>
+          <span class="sktag">HTML5</span>
+          <span class="sktag">CSS3</span>
+          <span class="sktag">JavaScript</span>
+        </div>
+      </div>
+      <!-- Tools -->
+      <div class="skc">
+        <div class="skc-title"><i class="fas fa-wrench"></i> Tools</div>
+        <div class="sktags">
+          <span class="sktag on">Git</span>
+          <span class="sktag on">GitHub</span>
+          <span class="sktag on">VS Code</span>
+          <span class="sktag">Photoshop</span>
+          <span class="sktag">Terminal</span>
+          <span class="sktag">Chrome DevTools</span>
+        </div>
+      </div>
+      <!-- Learning -->
+      <div class="skc">
+        <div class="skc-title"><i class="fas fa-rocket"></i> Currently Learning</div>
+        <div class="sktags">
+          <span class="sktag learn">MySQL</span>
+          <span class="sktag learn">PHP</span>
+          <span class="sktag learn">DSA</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skill Bars -->
+    <div class="sbsec rev">
+      <div class="sec-lbl">proficiency_levels</div>
+      <div class="sbgrid">
+        <div class="sbi">
+          <div class="sbt"><span class="sbn">C / C++</span><span class="sbp">80%</span></div>
+          <div class="sbbg"><div class="sbfill" data-w="80"></div></div>
+        </div>
+        <div class="sbi">
+          <div class="sbt"><span class="sbn">HTML / CSS</span><span class="sbp">88%</span></div>
+          <div class="sbbg"><div class="sbfill" data-w="88"></div></div>
+        </div>
+        <div class="sbi">
+          <div class="sbt"><span class="sbn">Java</span><span class="sbp">72%</span></div>
+          <div class="sbbg"><div class="sbfill" data-w="72"></div></div>
+        </div>
+        <div class="sbi">
+          <div class="sbt"><span class="sbn">JavaScript</span><span class="sbp">70%</span></div>
+          <div class="sbbg"><div class="sbfill" data-w="70"></div></div>
+        </div>
+        <div class="sbi">
+          <div class="sbt"><span class="sbn">Python</span><span class="sbp">75%</span></div>
+          <div class="sbbg"><div class="sbfill" data-w="75"></div></div>
+        </div>
+        <div class="sbi">
+          <div class="sbt"><span class="sbn">Git & GitHub</span><span class="sbp">68%</span></div>
+          <div class="sbbg"><div class="sbfill" data-w="68"></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── PROJECTS ── -->
+<section id="projects">
+  <div class="wrap">
+    <div class="ph rev">
+      <div>
+        <div class="sec-lbl">projects.list</div>
+        <h2 class="sec-title">My <span class="hl">Projects</span></h2>
+        <p style="font-family:var(--mono); font-size:.72rem; color:var(--text3); margin-top:.3rem;">
+          // auto-loading from <span style="color:var(--accent)">@arnab8123</span> · GitHub
+        </p>
+      </div>
+      <button class="btn-o" onclick="loadGH()" style="height:fit-content">
+        <i class="fab fa-github"></i> Refresh
+      </button>
+    </div>
+
+    <!-- GitHub auto-loaded repos -->
+    <div class="sec-lbl" style="margin-bottom:1rem">github_repos</div>
+    <div class="pgrid" id="pgrid">
+      <div class="pload"><div class="sp"></div><p>// fetching @arnab8123 repos...</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ── LIVE PREVIEWS ── -->
+<section id="previews">
+  <div class="wrap">
+    <div class="rev" style="text-align:center">
+      <div class="sec-lbl" style="justify-content:center">live_preview.exe</div>
+      <h2 class="sec-title">Live <span class="hl">Demos</span></h2>
+      <p class="sec-sub" style="margin:0 auto">Browse my projects directly — no need to leave the page.</p>
+    </div>
+ 
+    <!-- Tabs — built by JS via initPreview() -->
+    <div class="preview-tabs rev" id="previewTabs"></div>
+ 
+    <!-- Browser window -->
+    <div class="browser-outer rev">
+      <div class="browser-wrap">
+ 
+        <!-- Title bar -->
+        <div class="browser-titlebar">
+          <div class="browser-dots">
+            <span class="bd-r"></span>
+            <span class="bd-y"></span>
+            <span class="bd-g"></span>
+          </div>
+          <div class="browser-url-bar">
+            <i class="fas fa-lock lock-icon"></i>
+            <span id="urlText">arnab8123.github.io</span>
+          </div>
+          <div class="browser-actions">
+            <button class="bact" onclick="reloadFrame()" title="Reload">
+              <i class="fas fa-rotate-right"></i>
+            </button>
+            <a class="bact" id="openExternal" href="#" target="_blank" title="Open in new tab">
+              <i class="fas fa-external-link-alt"></i>
+            </a>
+          </div>
+        </div>
+ 
+        <!-- Loading bar -->
+        <div class="browser-loader">
+          <div class="browser-loader-bar" id="loaderBar"></div>
+        </div>
+ 
+        <!-- iframe + overlays -->
+        <div class="browser-body">
+          <iframe
+            id="previewFrame"
+            src="about:blank"
+            frameborder="0"
+            allowfullscreen
+            loading="lazy"
+            title="Live Preview"
+            sandbox="allow-scripts allow-same-origin allow-forms allow-popups"
+          ></iframe>
+ 
+          <!-- Loading overlay -->
+          <div class="frame-overlay overlay-loading" id="overlayLoading">
+            <i class="fas fa-circle-notch"></i>
+            <p>// loading preview...</p>
+          </div>
+ 
+          <!-- Blocked overlay -->
+          <div class="frame-overlay overlay-blocked" id="overlayBlocked">
+            <i class="fas fa-shield-halved"></i>
+            <h3>Preview Blocked</h3>
+            <p>This site restricts embedding via <code>X-Frame-Options</code>. You can still view it directly.</p>
+            <a id="blockedLink" href="#" target="_blank" class="btn-p" style="margin-top:.5rem; pointer-events:all">
+              <i class="fas fa-external-link-alt"></i> Open in New Tab
+            </a>
+          </div>
+        </div>
+ 
+        <!-- Status bar -->
+        <div class="browser-statusbar">
+          <span><span class="status-dot"></span><span id="statusText">Ready</span></span>
+          <span style="color:var(--accent)">github.com/arnab8123</span>
+        </div>
+ 
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── EDUCATION ── -->
+<section id="education">
+  <div class="wrap">
+    <div class="rev" style="text-align:center">
+      <div class="sec-lbl" style="justify-content:center">education.log</div>
+      <h2 class="sec-title">Academic <span class="hl">Background</span></h2>
+    </div>
+    <div class="edgrid">
+
+      <div class="edc rev">
+        <div class="edico">🎓</div>
+        <div class="eddeg">Diploma in Computer Science / IT</div>
+        <div class="edsch">
+          <i class="fas fa-university" style="color:var(--accent); margin-right:5px"></i>
+          Your Polytechnic College
+        </div>
+        <div class="edyr">2023 – 2026</div>
+        <span class="edbadge">Pursuing</span>
+        <div class="edsub">
+          Core: C · C++ · Java · Web Dev · DBMS · OS · Networking · Python
+        </div>
+      </div>
+
+      <div class="edc rev">
+        <div class="edico">📘</div>
+        <div class="eddeg">Secondary School Certificate (Madhyamik)</div>
+        <div class="edsch">
+          <i class="fas fa-school" style="color:var(--accent); margin-right:5px"></i>
+          Your School Name
+        </div>
+        <div class="edyr">Passed 2021</div>
+        <span class="edbadge" style="background:rgba(34,197,94,.07); color:#22c55e; border-color:rgba(34,197,94,.2)">
+          Completed
+        </span>
+        <div class="edsub">
+          Board: WBBSE (West Bengal Board) &nbsp;·&nbsp; Score: 58%
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CONTACT ── -->
+<section id="contact">
+  <div class="wrap">
+    <div class="rev" style="text-align:center">
+      <div class="sec-lbl" style="justify-content:center">contact.init()</div>
+      <h2 class="sec-title">Let's <span class="hl">Connect</span></h2>
+      <p class="sec-sub" style="margin:0 auto">Open to internships, junior dev roles &amp; freelance. Drop a message!</p>
+    </div>
+
+    <div class="cgrid">
+
+      <div class="rev">
+        <a class="ci" href="mailto:arnabmalakar@hotmail.com">
+          <div class="cico"><i class="fas fa-envelope"></i></div>
+          <div><div class="clb">Email</div><div class="cvl">arnab@email.com</div></div>
+        </a>
+        <a class="ci" href="https://github.com/arnab8123" target="_blank">
+          <div class="cico"><i class="fab fa-github"></i></div>
+          <div><div class="clb">GitHub</div><div class="cvl">github.com/arnab</div></div>
+        </a>
+        <a class="ci" href="https://www.linkedin.com/in/arnab-malakar-434619360/" target="_blank">
+          <div class="cico"><i class="fab fa-linkedin"></i></div>
+          <div><div class="clb">LinkedIn</div><div class="cvl">linkedin.com/arnab</div></div>
+        </a>
+        <a class="ci" href="tel:+917044653833">
+          <div class="cico"><i class="fas fa-phone"></i></div>
+          <div><div class="clb">Phone</div><div class="cvl">+91 XXXXX XXXXX</div></div>
+        </a>
+      </div>
+
+      <div class="rev">
+        <div class="cform">
+          <div class="crow">
+            <div class="cg">
+              <label class="cl">Name</label>
+              <input type="text" class="ci2" placeholder="HR / Recruiter"/>
+            </div>
+            <div class="cg">
+              <label class="cl">Company</label>
+              <input type="text" class="ci2" placeholder="Company Name"/>
+            </div>
+          </div>
+          <div class="cg">
+            <label class="cl">Email</label>
+            <input type="email" class="ci2" placeholder="hr@company.com"/>
+          </div>
+          <div class="cg">
+            <label class="cl">Message</label>
+            <textarea class="cta" placeholder="I'd like to discuss an opportunity..."></textarea>
+          </div>
+          <button class="csub" onclick="showToast('Message sent! I\'ll reply within 24hrs ✅')">
+            <i class="fas fa-paper-plane"></i> Send Message
+          </button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── FOOTER ── -->
+<footer>
+  <div class="wrap">
+    <div class="flogo"><span class="acc">&gt;_</span> Arnab</div>
+    <div class="flinks">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#education">education</a>
+      <a href="#contact">contact</a>
+    </div>
+    <div class="fsoc">
+      <a href="https://github.com/arnab8123" target="_blank" class="sb"><i class="fab fa-github"></i></a>
+      <a href="https://www.linkedin.com/in/arnab-malakar-434619360/" target="_blank" class="sb"><i class="fab fa-linkedin"></i></a>
+      <a href="mailto:arnabmalakar@hotmail.com" class="sb"><i class="fas fa-envelope"></i></a>
+    </div>
+    <div class="fcopy">// coded with ❤️ by <span style="color:var(--accent)">Arnab</span> · 2025</div>
+  </div>
+</footer>
+
+<!-- Scroll to top -->
+<button class="stb" id="stb" onclick="window.scrollTo({top:0, behavior:'smooth'})">
+  <i class="fas fa-arrow-up"></i>
+</button>
+
+<!-- Toast notification -->
+<div class="toast" id="toast">
+  <i class="fas fa-check-circle"></i>
+  <span id="toastMsg"></span>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
