@@ -543,7 +543,7 @@ section { position: relative; z-index: 1; }
 
 /* ── CONTACT ── */
 #contact { padding: 100px 0; }
-.cgrid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; margin-top: 2.5rem; }
+.cgrid { display: grid; grid-template-columns: minmax(0, 760px); justify-content: center; margin-top: 2.5rem; }
 
 .ci {
   display: flex; align-items: center; gap: 1rem;
